@@ -24,11 +24,18 @@ var Gua = function () {
   g.testHit = function ( a, b) {
       var x = (a.x + a.image.width  <= b.x || b.x + b.image.width  <= a.x)
       var y = (a.y + a.image.height <= b.y || b.y + b.image.height <= a.y)
-      if (! (x || y)) {
-        log(x,y)
-        a.hit(!x?'y':'x')
-        b.hit(!x?'x':'y')
+      if (x) {
+        g.dir='x'
       }
+      if (y) {
+        g.dir='y'
+      }
+      if (! (x || y)) {
+        log(x,y,g.dir)
+        a.hit(g.dir)
+        b.hit(g.dir)
+      }
+
  }
   //timer
   setInterval(function () {

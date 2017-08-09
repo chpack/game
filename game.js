@@ -8,12 +8,9 @@ var __main = function () {
     wall.push(Block(100,i * 20))
   }
   game.regest('a',pad.moveL)
-  game.regest('d', function () {
-    pad.moveR()
-  })
-  game.regest('f', function () {
-    ball.fire()
-  })
+  game.regest('d',pad.moveR)
+  game.regest('f',ball.fire)
+  
   game.update = function () {
     for (var i = 0; i < wall.length; i++) {
       if (wall[i].alive) {
